@@ -1,0 +1,68 @@
+TC.1.7. Como o problema de utilização de emojis, citado no exercício TC.1.6., poderia ser resolvido na prática em um sistema de PLN?
+
+Existem várias abordagens para lidar com emojis em sistemas de PLN:
+Para esta atividade, vou estar citando 2, sendo elas: remoção e substituição: Os emojis podem ser removidos antes da análise do texto principal, ou podem ser substituídos por uma descrição textual equivalente.
+
+Remoção:
+Original: "Estou muito feliz hoje! 😊"
+Processado: "Estou muito feliz hoje!"
+
+Porém e quando o comentário for somente um emoji?
+
+Então teríamos seguir com a substituição...
+
+Classificação de Emoções: Utilizariamos modelos de classificação de emoções treinados para identificar e interpretar emojis específicos, atribuindo-lhes uma categoria emocional que pode ser integrada à análise de sentimentos do texto.
+
+Treinamento com Dados: Incorporar conjuntos de dados que incluem emojis, permitindo que o sistema aprenda a associar corretamente emojis com expressões textuais específicas durante o treinamento do modelo.
+
+Exemplos:
+
+Texto: "Estou muito animado para a viagem! 🎉"
+Solução: O sistema identifica o emoji "🎉" como indicativo de animação.
+
+Texto: "Que dia chato... 😞"
+Solução: O sistema interpreta o emoji "😞" como indicativo de tristeza.
+
+Texto: "Foi um dia incrível! 😄"
+Solução: O sistema reconhece o emoji "😄" como indicativo de felicidade.
+
+e como ele faria para reconhecer esses emojis?
+
+Para que um sistema de Processamento de Linguagem Natural (PLN) reconheça e interprete emojis corretamente, ele pode utilizar algumas estratégias, como dicionários de mapeamento, embeddings de emojis e modelos de aprendizado profundo:
+
+1 - Uso de Dicionários de Emojis
+Uma abordagem simples é utilizar um dicionário que mapeia emojis para palavras ou sentimentos correspondentes. Existem bibliotecas prontas que fazem isso, como o emoji no Python.
+
+Exemplo de código em Python com a biblioteca emoji:
+
+import emoji
+texto = "Estou tão feliz hoje! 😄"
+texto_processado = emoji.demojize(texto)
+print(texto_processado)
+Saída:
+Estou tão feliz hoje! :grinning_face_with_big_eyes:
+Esse método permite que o modelo processe os emojis como palavras comuns.
+
+2 - Treinamento com Embeddings de Emojis
+Outra abordagem mais avançada é treinar um modelo de PLN utilizando embeddings que representem emojis no espaço vetorial, como acontece com palavras em modelos como Word2Vec ou FastText.
+
+Exemplo:
+O emoji 😄 pode ter um vetor similar a palavras como "feliz", "alegre", "sorridente".
+O emoji 😞 pode estar próximo de "triste", "desanimado", "deprimido".
+
+3 - Modelos de Machine Learning com Dados Enriquecidos
+Outra opção é treinar um modelo de PLN utilizando redes neurais ou transformers (como BERT, GPT, T5) em textos que contenham emojis. Se o modelo for treinado com grandes quantidades de dados de redes sociais e conversas informais, ele pode aprender a associar automaticamente emojis a sentimentos ou significados específicos.
+
+Exemplo:
+Se treinarmos um classificador com frases reais, ele aprenderá que:
+
+Frase -> Emoji -> Sentimento Aprendido
+"Estou muito feliz! 😃" -> 😃 -> Positivo
+"Que dia horrível... 😡" -> 😡 -> Negativo
+"Não sei o que pensar 🤔" -> 🤔 -> Neutro
+
+Conclusão
+Podemos apenas remover os emojis das frases.
+Podemos utilizar um sistema que reconhece emojis corretamente, utilizando dicionários de emojis (solução rápida e simples).
+Poemos converter emojis em embeddings para que sejam processados como palavras.
+Podedmos treinar um modelo de PLN com textos que já contenham emojis para aprender seus significados no contexto.
