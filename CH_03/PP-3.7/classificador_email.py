@@ -64,6 +64,7 @@ dados = [
     ("Agradeço de coração", "Elogio"),
     ("Impressionado com o suporte", "Elogio"),
     ("Top demais! Valeu!", "Elogio"),
+    ("O sistema é muito bom", "Elogio"),
 ]
 
 # Separar textos e rótulos
@@ -97,6 +98,8 @@ texto_teste = "Não consigo abrir o sistema desde ontem"
 print("\n=== TESTE COM NOVO TEXTO ===")
 print(f"Texto: {texto_teste}")
 print(f"Classificação: {classificar_texto(texto_teste)}")
+vetor = vectorizer.transform([texto_teste])
+print("Índices ativados:", vetor.nonzero()[1])
 
 # Salvar modelo e vetor
 joblib.dump(mlp, 'modelo_mlp.pkl')
